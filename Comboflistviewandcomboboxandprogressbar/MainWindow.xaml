@@ -1,0 +1,57 @@
+﻿<Window x:Class="Comboflistviewandcomboboxandprogressbar.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Comboflistviewandcomboboxandprogressbar"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="479.508" Width="1011.476">
+    <Grid>
+        <ListView Name="listView" HorizontalAlignment="Left" Height="248" Margin="22,10,0,0" VerticalAlignment="Top" Width="637">
+            <ListView.View>
+                <GridView ColumnHeaderToolTip="Products Info">
+                    <GridViewColumn Header="Image" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding Image}" Cursor="Hand"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Name" Width="200" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
+                    <GridViewColumn Header="Type" Width="150" DisplayMemberBinding="{Binding Type}"></GridViewColumn>
+                    <GridViewColumn Header="Price" Width="100" DisplayMemberBinding="{Binding Price}"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+
+        </ListView>
+        <TextBox Name="textImage" HorizontalAlignment="Left" Height="23" Margin="679,36,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="textName" HorizontalAlignment="Left" Height="23" Margin="679,95,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Image:" HorizontalAlignment="Left" Margin="679,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Name:" HorizontalAlignment="Left" Margin="679,64,0,0" VerticalAlignment="Top"/>
+        <Label Content="Type:" HorizontalAlignment="Left" Margin="679,123,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="textType" HorizontalAlignment="Left" Height="23" Margin="679,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Price:" HorizontalAlignment="Left" Height="25" Margin="679,177,0,0" VerticalAlignment="Top" Width="37"/>
+        <TextBox Name="textPrice" HorizontalAlignment="Left" Height="23" Margin="679,202,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Add To Menu" HorizontalAlignment="Left" Margin="822,243,0,0" VerticalAlignment="Top" Width="93" Click="Add_To_Menu"/>
+        <Label x:Name="menuLabel" HorizontalAlignment="Left" Margin="679,276,0,0" VerticalAlignment="Top" Width="120" Target="{Binding ElementName=menuComboBox}">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="http://cdn1.iconfinder.com/data/icons/fatcow/16/bullet_blue.png" Width="20"></Image>
+                <AccessText Text="_Menu"></AccessText>
+            </StackPanel>
+        </Label>
+        <ComboBox Name="comboBox" HorizontalAlignment="Left" Margin="679,311,0,0" VerticalAlignment="Top" Width="120">
+            
+        </ComboBox>
+        <Button Content="Add To Basket" HorizontalAlignment="Left" Margin="822,311,0,0" VerticalAlignment="Top" Width="93" RenderTransformOrigin="0.495,-0.098" Click="Add_To_Basket"/>
+        <Label Name="total" Content="Total: " HorizontalAlignment="Left" Margin="22,276,0,0" VerticalAlignment="Top"/>
+        <Label Content="Money: " HorizontalAlignment="Left" Margin="22,305,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="textMoney" HorizontalAlignment="Left" Height="23" Margin="80,309,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Pay" HorizontalAlignment="Left" Margin="218,311,0,0" VerticalAlignment="Top" Width="75" Click="Pay"/>
+        <Button Content="Remove Item" HorizontalAlignment="Left" Margin="309,311,0,0" VerticalAlignment="Top" Width="90" Click="Remove_Item"/>
+        <ProgressBar Name="progressBar" HorizontalAlignment="Left" Height="22" Margin="22,348,0,0" VerticalAlignment="Top" Width="637"/>
+        <TextBlock HorizontalAlignment="Left" Margin="300,354,0,0" TextWrapping="Wrap" Text="{Binding ElementName=progressBar, Path=Value, StringFormat={}{0:0}%}" VerticalAlignment="Top"/>
+        <Label Name="status" Content="Status: " HorizontalAlignment="Left" Margin="25,375,0,0" VerticalAlignment="Top"/>
+
+
+    </Grid>
+</Window>
